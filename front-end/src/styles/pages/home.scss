@@ -1,0 +1,22 @@
+.users-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 30px;
+
+  .title{
+    font-size: 40px;
+    font-weight: bold;
+
+    span{
+      color: #FF0101;
+    }
+  }
+
+  .users {
+    display: flex;
+    gap: 30px;
+  }
+}

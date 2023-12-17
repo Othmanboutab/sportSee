@@ -1,0 +1,23 @@
+.details-container {
+  display: flex;
+  padding-inline: 6rem;
+  width: 100%;
+  flex-direction: column;
+  .title-container {
+    .title {
+      font-size: 48px;
+
+      span {
+        color: #ff0101;
+      }
+    }
+    .subtitle {
+      font-weight: 100;
+    }
+  }
+
+  .charts-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

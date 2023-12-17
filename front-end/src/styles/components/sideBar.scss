@@ -1,0 +1,36 @@
+aside{
+    background-color: black;
+    width: 117px;
+    min-height: calc(100vh - 109px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+
+    .logos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        span{
+            background-color: white;
+            width: 64px;
+            height: 64px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+
+    .copiryght{
+        color: white;
+        transform: rotate(180deg);
+        writing-mode: vertical-lr;
+    }
+
+}
