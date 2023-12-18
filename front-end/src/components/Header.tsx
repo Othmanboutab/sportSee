@@ -1,7 +1,6 @@
 import { useState } from "react";
 import logo from "../assets/logo-navbar.svg";
 import "../styles/components/header.scss";
-import PropTypes from "prop-types";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -40,11 +39,6 @@ const Header = () => {
       </nav>
     </header>
   );
-};
-
-Header.propTypes = {
-  menuOpen: PropTypes.bool.isRequired,
-  toggleMenu: PropTypes.func.isRequired,
 };
 
 export default Header;
