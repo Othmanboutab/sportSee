@@ -1,3 +1,6 @@
+@import "../variables/variables";
+
+
 .dailyChart-container {
   background-color: #fbfbfb;
   border-radius: 5px;
@@ -10,7 +13,7 @@
     display: flex;
     justify-content: space-between;
 
-    @media (max-width: 768px) {
+      @media only screen and (max-width: $mobile-width) {
       flex-direction: column;
       gap: 20px;
     }
@@ -25,7 +28,7 @@
       gap: 40px;
       color: #20253a;
 
-      @media (max-width: 768px) {
+        @media only screen and (max-width: $mobile-width) {
         font-size: 14px;
       }
     }
@@ -75,7 +78,7 @@
     background-color: white;
     padding: 15px;
 
-    @media (max-width: 768px) {
+      @media only screen and (max-width: $mobile-width) {
       top: 22%;
       left: 27% !important;
     }
