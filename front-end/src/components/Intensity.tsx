@@ -6,12 +6,17 @@ import {
   Radar,
 } from "recharts";
 
-const Intensity = ({ data }: any) => {
+const Intensity = ({ data }: UserPerformance) => {
+  const newData = data?.data?.map((item: { value: number; kind: number }) => ({
+    value: item.value,
+    kind: data.kind[item.kind],
+  }));
+
   return (
-    <ResponsiveContainer width="100%" aspect={3}>
+    <ResponsiveContainer width="100%" height="100%" aspect={1.2}>
       <RadarChart
         outerRadius={70}
-        data={data}
+        data={newData}
         style={{ background: "#282d30", borderRadius: "10px" }}
       >
         <PolarGrid radialLines={false} />

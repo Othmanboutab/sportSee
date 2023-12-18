@@ -1,0 +1,105 @@
+.dailyChart-container {
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .chart-title {
+      font-size: 18px;
+      color: #20253a;
+    }
+
+    .userDataChart {
+      display: flex;
+      gap: 40px;
+      color: #20253a;
+
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .tooltip-container {
+    background-color: red;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.userScoreChart {
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  position: relative;
+
+  .userTitle {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 10px;
+  }
+
+  .recharts-legend-wrapper {
+    position: absolute;
+    z-index: 0;
+    text-align: center;
+    top: 27%;
+    left: 30% !important;
+    width: 100px !important;
+    height: 100px !important;
+    border: none;
+    border-radius: 50%;
+    line-height: 18px;
+    background-color: white;
+    padding: 15px;
+
+    @media (max-width: 768px) {
+      top: 22%;
+      left: 27% !important;
+    }
+  }
+
+  .custom-legend-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    p {
+      margin: 0;
+    }
+
+    .custom-legend-score-data {
+      font-size: 26px;
+      color: #282d30;
+    }
+
+    .custom-legend-score-objective {
+      font-size: 16px;
+      color: #74798c;
+    }
+  }
+}

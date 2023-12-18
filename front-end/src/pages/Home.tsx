@@ -15,11 +15,13 @@ const Home = () => {
           ids.map((id) => getUserDetails(id))
         );
         setUsers(
-          usersData.map((data, index) => ({
-            id: ids[index],
-            userInfos: data?.data?.userInfos,
-            todayScore: data?.data?.todayScore,
-            keyData: data?.data?.keyData,
+          usersData?.map((data: User, index: number) => ({
+            data: {
+              id: ids[index],
+              userInfos: data?.data?.userInfos,
+              todayScore: data?.data?.todayScore,
+              keyData: data?.data?.keyData,
+            },
           }))
         );
       } catch (error) {
@@ -37,9 +39,7 @@ const Home = () => {
       </p>
       <div className="users">
         {users &&
-          users.map((user) => (
-            <Card id={user.id} key={user.id} userInfos={user?.userInfos} />
-          ))}
+          users.map((user) => <Card key={user?.data?.id} user={user} />)}
       </div>
     </div>
   );

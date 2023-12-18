@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import "../styles/components/card.scss";
 
-const Card: React.FC<Partial<User>> = ({ id, userInfos }) => {
-  if (!userInfos) return null;
-  const { firstName, lastName, age } = userInfos;
+const Card = ({ user }: { user: User }) => {
+  if (!user) return null;
+
+  const {
+    data: {
+      id,
+      userInfos: { firstName, lastName, age },
+    },
+  } = user;
 
   return (
     <Link to={`/user/${id}`} className="link">

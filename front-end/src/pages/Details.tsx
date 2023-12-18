@@ -11,6 +11,7 @@ import ActivityChart from "../components/ActivityChart";
 import SessionChart from "../components/SessionChart";
 import Intensity from "../components/Intensity";
 import Score from "../components/Score";
+import NutritionSidebar from "../components/NutritionSidebar";
 
 interface UserData {
   userInfos: User;
@@ -24,7 +25,7 @@ const Details = () => {
 
   const { id } = useParams<{ id: string }>();
 
-  if (!id) return null;
+  if (!id) return <p>Aucun ID trouvé.</p>;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,6 +46,8 @@ const Details = () => {
     fetchData();
   }, [id]);
 
+  if (!userData) return <p>loading</p>;
+
   return (
     <div className="details-container">
       <div className="title-container">
@@ -57,13 +60,24 @@ const Details = () => {
       </div>
 
       <div className="charts-container">
-        <div className="first-section">
-          <ActivityChart data={userData?.userActivity?.data?.sessions} />
+        <div className="container">
+          <div className="first-section">
+            <ActivityChart data={userData.userActivity.data} />
+          </div>
+          <div className="second-section">
+            <div>
+              <SessionChart data={userData?.userSessions?.data} />
+            </div>
+            <div>
+              <Intensity data={userData?.userPerformance?.data} />
+            </div>
+            <div>
+              <Score data={userData?.userInfos?.data?.todayScore} />
+            </div>
+          </div>
         </div>
-        <div className="second-section">
-          <SessionChart data={userData?.userSessions?.data?.sessions} />
-          <Intensity data={userData?.userPerformance?.data?.data} />
-          <Score data={userData?.userInfos?.data?.todayScore} />
+        <div className="aside">
+          <NutritionSidebar data={userData?.userInfos?.data} />
         </div>
       </div>
     </div>
