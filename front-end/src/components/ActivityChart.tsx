@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import { CustomTooltip, CustomizedAxisTick } from "../utils/chart";
 import "../styles/components/chart.scss";
+import PropTypes from "prop-types";
 
 const ActivityChart = ({ data }: UserActivity) => {
   if (!data) return null;
@@ -97,6 +98,18 @@ const ActivityChart = ({ data }: UserActivity) => {
       )}
     </div>
   );
+};
+
+ActivityChart.propTypes = {
+  data: PropTypes.shape({
+    sessions: PropTypes.arrayOf(
+      PropTypes.shape({
+        day: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        kilogram: PropTypes.number,
+        calories: PropTypes.number,
+      })
+    ),
+  }),
 };
 
 export default ActivityChart;

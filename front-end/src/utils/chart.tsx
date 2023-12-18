@@ -48,8 +48,8 @@ export const CustomTooltip = ({
   active,
   payload,
 }: {
-  active: boolean;
-  payload: Record<string, any>;
+  active?: boolean;
+  payload?: Record<string, any>;
 }) =>
   active &&
   payload &&

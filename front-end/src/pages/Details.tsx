@@ -22,6 +22,8 @@ interface UserData {
 
 const Details = () => {
   const [userData, setUserData] = useState<UserData>();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const { id } = useParams<{ id: string }>();
 
@@ -39,14 +41,20 @@ const Details = () => {
           ]);
         setUserData({ userInfos, userActivity, userSessions, userPerformance });
       } catch (error) {
-        console.error("Error fetching user details:", error);
+        setError(
+          "Une erreur s'est produite lors de la récupération des données."
+        );
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [id]);
 
-  if (!userData) return <p>loading</p>;
+  if (loading) return <p>Chargement...</p>;
+  if (error) return <p>{error}</p>;
+  if (!userData) return null;
 
   return (
     <div className="details-container">

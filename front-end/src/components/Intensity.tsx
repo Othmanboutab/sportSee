@@ -5,6 +5,7 @@ import {
   RadarChart,
   Radar,
 } from "recharts";
+import PropTypes from "prop-types";
 
 const Intensity = ({ data }: UserPerformance) => {
   const newData = data?.data?.map((item: { value: number; kind: number }) => ({
@@ -34,6 +35,18 @@ const Intensity = ({ data }: UserPerformance) => {
       </RadarChart>
     </ResponsiveContainer>
   );
+};
+
+Intensity.propTypes = {
+  data: PropTypes.shape({
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.number.isRequired,
+        kind: PropTypes.number.isRequired,
+      })
+    ),
+    kind: PropTypes.object.isRequired,
+  }),
 };
 
 export default Intensity;

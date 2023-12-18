@@ -7,6 +7,7 @@ import {
   YAxis,
 } from "recharts";
 import { CustomCursor, CustomTooltip } from "../utils/chart";
+import PropTypes from "prop-types";
 
 const COLOR = "#ffffffa4";
 
@@ -88,6 +89,17 @@ const SessionChart = ({ data }: UserAverageSessions) => {
       </LineChart>
     </ResponsiveContainer>
   );
+};
+
+SessionChart.propTypes = {
+  data: PropTypes.shape({
+    sessions: PropTypes.arrayOf(
+      PropTypes.shape({
+        day: PropTypes.number.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+      })
+    ),
+  }),
 };
 
 export default SessionChart;

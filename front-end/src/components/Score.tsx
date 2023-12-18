@@ -7,6 +7,7 @@ import {
 } from "recharts";
 import "../styles/components/chart.scss";
 import { CustomScoreData } from "../utils/chart";
+import PropTypes from "prop-types";
 
 const Score = ({ data }: { data: number }) => {
   const userScore = [
@@ -43,5 +44,10 @@ const Score = ({ data }: { data: number }) => {
     </div>
   );
 };
+
+Score.propTypes = {
+  data: PropTypes.number.isRequired,
+};
+
 
 export default Score;

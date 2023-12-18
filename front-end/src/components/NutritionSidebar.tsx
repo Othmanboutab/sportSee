@@ -3,6 +3,7 @@ import chicken from "../assets/chicken.svg";
 import fire from "../assets/fire.svg";
 import burger from "../assets/burger.svg";
 import "../styles/components/nutritionSidebar.scss";
+import PropTypes from "prop-types";
 
 interface Nutrition {
   logo: string;
@@ -62,6 +63,17 @@ const NutritionSidebar = ({ data }: User) => {
       })}
     </div>
   );
+};
+
+NutritionSidebar.propTypes = {
+  data: PropTypes.shape({
+    keyData: PropTypes.shape({
+      calorieCount: PropTypes.number.isRequired,
+      proteinCount: PropTypes.number.isRequired,
+      carbohydrateCount: PropTypes.number.isRequired,
+      lipidCount: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default NutritionSidebar;
